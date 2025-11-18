@@ -1,36 +1,19 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Meeting — Live AI Conversation App
 
-## Getting Started
+An experimental Next.js app that enables real-time voice meetings with an AI assistant. Users can sign up, sign in, and have live conversations with an AI during meetings. This repository contains the frontend (Next.js App Router) and server-side API endpoints for authentication and data access.
 
-First, run the development server:
+Key idea: capture user audio in the browser, stream to a backend relay or WebSocket, and forward audio (or transcribed text) to an AI service for live responses.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ Features
+- Live voice conversation with an AI (architecture scaffolding — add your preferred streaming provider).
+- Email/password signup + login (JWT-based authentication helpers included).
+- Simple dashboard and pages scaffolded under src/app.
+- Pluggable database support (project includes Neon/MySQL-related dependencies).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Technology stack
+- Next.js 16 (App Router)
+- React 19
+- Tailwind CSS (present in devDependencies)
+- JWT auth using jsonwebtoken and bcryptjs
+- Database: Neon (`@neondatabase/serverless`) 
