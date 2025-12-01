@@ -1,0 +1,200 @@
+export const events = [
+    {
+        id: 1,
+        title: "Jazz Night at Blue Note",
+        date: "2023-07-20",
+        time: "19:00",
+        status: "Published",
+        attendees: 120,
+        capacity: 150,
+        description: "An enchanting evening of smooth jazz featuring renowned artists from around the world. Experience the magic of live music in an intimate setting.",
+        location: "Blue Note Jazz Club, 131 W 3rd St, New York, NY 10012",
+        language: "English",
+        category: "Music",
+        price: 75,
+        audience: "Adults",
+        venueType: "Indoor Concert Hall",
+        featured: true,
+        images: [
+            "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+        ]
+    },
+    {
+        id: 2,
+        title: "Startup Pitch Competition",
+        date: "2023-08-10",
+        time: "14:00",
+        status: "Draft",
+        attendees: 0,
+        capacity: 200,
+        description: "Watch innovative startups pitch their groundbreaking ideas to a panel of industry experts and investors. Network with entrepreneurs and visionaries.",
+        location: "Innovation Hub, 450 Broadway, San Francisco, CA 94133",
+        language: "English",
+        category: "Business",
+        price: 0,
+        audience: "Professionals",
+        venueType: "Conference Center",
+        featured: false,
+        images: [
+            "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+        ]
+    },
+    {
+        id: 3,
+        title: "Charity Gala Dinner",
+        date: "2023-09-15",
+        time: "19:30",
+        status: "Published",
+        attendees: 85,
+        capacity: 100,
+        description: "An elegant charity gala supporting local arts education. Enjoy a gourmet dinner, silent auction, and entertainment while contributing to a worthy cause.",
+        location: "Grand Ballroom, Metropolitan Museum of Art, 1000 5th Ave, New York, NY 10028",
+        language: "English",
+        category: "Fundraiser",
+        price: 250,
+        audience: "Adults",
+        venueType: "Luxury Venue",
+        featured: true,
+        images: [
+            "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+        ]
+    },
+    {
+        id: 4,
+        title: "Photography Workshop",
+        date: "2023-07-30",
+        time: "10:00",
+        status: "Published",
+        attendees: 42,
+        capacity: 50,
+        description: "Master the art of photography with hands-on instruction from professional photographers. Learn composition, lighting, and post-processing techniques.",
+        location: "Creative Arts Center, 789 Oak Street, Portland, OR 97205",
+        language: "English",
+        category: "Arts & Crafts",
+        price: 89,
+        audience: "All Ages",
+        venueType: "Studio",
+        featured: false,
+        images: [
+            "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+        ]
+    },
+    {
+        id: 5,
+        title: "Book Launch Event",
+        date: "2023-08-05",
+        time: "18:00",
+        status: "Cancelled",
+        attendees: 0,
+        capacity: 75,
+        description: "Join us for the launch of the highly anticipated novel by bestselling author. Meet the author, enjoy readings, and participate in a Q&A session.",
+        location: "City Library Auditorium, 123 Main Street, Seattle, WA 98101",
+        language: "English",
+        category: "Literature",
+        price: 15,
+        audience: "Teens & Adults",
+        venueType: "Library",
+        featured: false,
+        images: [
+            "https://images.unsplash.com/photo-1526738549149-8e07eca15ecb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1495640388908-05fa85288e61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+        ]
+    },
+    {
+        id: 6,
+        title: "Tech Conference 2023",
+        date: "2023-10-12",
+        time: "09:00",
+        status: "Published",
+        attendees: 150,
+        capacity: 300,
+        description: "Join industry leaders for cutting-edge technology discussions. Network with professionals and learn about the latest innovations.",
+        location: "Convention Center, 450 Broadway, San Francisco, CA 94133",
+        language: "English",
+        category: "Technology",
+        price: 199,
+        audience: "Professionals",
+        venueType: "Conference Center",
+        featured: true,
+        images: [
+            "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+        ]
+    },
+    {
+        id: 7,
+        title: "Summer Music Festival",
+        date: "2023-07-15",
+        time: "19:00",
+        status: "Published",
+        attendees: 500,
+        capacity: 1000,
+        description: "Experience the ultimate musical journey with top artists from around the globe.",
+        location: "Central Park Amphitheater",
+        language: "English",
+        category: "Music",
+        price: 120,
+        audience: "All Ages",
+        venueType: "Outdoor",
+        featured: true,
+        images: [
+            "https://picsum.photos/1200/400?grayscale&random=1",
+            "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+        ]
+    },
+    {
+        id: 8,
+        title: "Art Exhibition Premiere",
+        date: "2023-08-22",
+        time: "18:30",
+        status: "Published",
+        attendees: 200,
+        capacity: 300,
+        description: "Discover contemporary masterpieces from emerging and established artists.",
+        location: "Modern Art Gallery",
+        language: "English",
+        category: "Art",
+        price: 50,
+        audience: "Adults",
+        venueType: "Gallery",
+        featured: true,
+        images: [
+            "https://picsum.photos/1200/400?grayscale&random=2",
+            "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+        ]
+    },
+    {
+        id: 9,
+        title: "Wine Tasting Experience",
+        date: "2023-08-15",
+        time: "17:30",
+        status: "Published",
+        attendees: 50,
+        capacity: 50,
+        description: "Indulge in premium vintages and learn from expert sommeliers.",
+        location: "Vineyard Estate",
+        language: "English",
+        category: "Food & Drink",
+        price: 150,
+        audience: "Adults",
+        venueType: "Winery",
+        featured: false,
+        images: [
+            "https://picsum.photos/1200/400?grayscale&random=3",
+            "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+        ]
+    }
+];

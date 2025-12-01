@@ -6,7 +6,7 @@ Key idea: capture user audio in the browser, stream to a backend relay or WebSoc
 
 
  Features
-- Live voice conversation with an AI (architecture scaffolding — add your preferred streaming provider).
+- Live voice conversation with an AI 
 - Email/password signup + login (JWT-based authentication helpers included).
 - Simple dashboard and pages scaffolded under src/app.
 - Pluggable database support (project includes Neon/MySQL-related dependencies).
