@@ -1,24 +1,28 @@
 "use client";
 
 import { useState } from "react";
+import { useTransition } from "@/context/TransitionContext";
 
 const images = [
-  "https://pbs.twimg.com/media/G6dpB9JaAAA2wDS?format=png&name=360x360",
-  "https://pbs.twimg.com/media/G6dpEiebIAEHrOS?format=jpg&name=360x360",
-  "https://pbs.twimg.com/media/G6dpGJZbsAEg1tp?format=png&name=360x360",
-  "https://pbs.twimg.com/media/G6dpHzVbkAERJI3?format=png&name=360x360",
-  "https://pbs.twimg.com/media/G6dpKpcbgAAj7ce?format=png&name=360x360",
-  "https://pbs.twimg.com/media/G6dpNYzawAAniIt?format=png&name=360x360",
-  "https://pbs.twimg.com/media/G6dpPilbcAAH3jU?format=jpg&name=360x360",
-  "https://pbs.twimg.com/media/G6dpRFBbsAEvquO?format=jpg&name=360x360",
-  "https://pbs.twimg.com/media/G6dpUL-aUAAUqGZ?format=png&name=small",
+  "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=2070&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?q=80&w=2074&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=2070&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2070&auto=format&fit=crop",
 ];
 
 const ExpandOnHover = () => {
   const [expandedImage, setExpandedImage] = useState(3);
+  const { startTransition } = useTransition();
 
   const getImageWidth = (index: number) =>
     index === expandedImage ? "35rem" : "6rem";
+
+  const handleCardClick = () => {
+    startTransition('/events');
+  };
 
   return (
     <div className="w-full bg-black">
@@ -30,18 +34,20 @@ const ExpandOnHover = () => {
                 {images.map((src, idx) => (
                   <div
                     key={idx}
-                    className="relative cursor-pointer overflow-hidden rounded-3xl transition-all duration-500 ease-in-out"
+                    className="relative cursor-pointer overflow-hidden rounded-3xl transition-all duration-500 ease-in-out group"
                     style={{
                       width: getImageWidth(idx + 1),
                       height: "35rem",
                     }}
                     onMouseEnter={() => setExpandedImage(idx + 1)}
+                    onClick={handleCardClick}
                   >
                     <img
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       src={src}
-                      alt={`Image ${idx + 1}`}
+                      alt={`Event ${idx + 1}`}
                     />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />
                   </div>
                 ))}
               </div>

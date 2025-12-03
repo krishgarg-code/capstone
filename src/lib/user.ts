@@ -10,6 +10,10 @@ export interface User {
   email: string;
   password: string;
   created_at: Date;
+  profile_image?: string;
+  age?: number;
+  city?: string;
+  state?: string;
 }
 
 // Create users table if it doesn't exist
@@ -51,11 +55,11 @@ export async function createUser(name: string, email: string, password: string):
     const query = 'INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING *';
     const values = [name, email, hashedPassword];
     const result: any = await database.query(query, values);
-    
+
     if (result.rows && result.rows.length > 0) {
       return result.rows[0];
     }
-    
+
     return null;
   } catch (error: any) {
     console.error('Error creating user:', error);

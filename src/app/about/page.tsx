@@ -2,6 +2,7 @@
 
 import { Users, Target, Award, Sparkles, ArrowRight, Music, Calendar, Ticket } from 'lucide-react';
 import Link from 'next/link';
+import TransitionLink from '@/components/TransitionLink';
 
 export default function About() {
   return (
@@ -122,12 +123,12 @@ export default function About() {
             <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
               Browse thousands of events and secure your spot today.
             </p>
-            <Link
+            <TransitionLink
               href="/events"
               className="inline-flex items-center gap-2 px-8 py-4 bg-[#00963c] text-white font-bold rounded-full hover:bg-[#007a30] transition-all shadow-lg hover:shadow-[#00963c]/50 hover:scale-105"
             >
               Explore Events <ArrowRight className="w-5 h-5" />
-            </Link>
+            </TransitionLink>
           </div>
         </div>
       </section>
