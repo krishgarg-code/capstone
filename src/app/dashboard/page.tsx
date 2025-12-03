@@ -76,7 +76,7 @@ export default function Dashboard() {
     if (user) {
       const fetchUserEvents = async () => {
         try {
-          const response = await fetch(`http://localhost:5001/api/events/user/${user.id}`);
+          const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001'}/api/events/user/${user.id}`);
           if (response.ok) {
             const data = await response.json();
             setEvents(data);
@@ -88,7 +88,7 @@ export default function Dashboard() {
 
       const fetchUserTickets = async () => {
         try {
-          const response = await fetch(`http://localhost:5001/api/tickets/user/${user.id}`);
+          const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001'}/api/tickets/user/${user.id}`);
           if (response.ok) {
             const data = await response.json();
             setTickets(data);
@@ -100,7 +100,7 @@ export default function Dashboard() {
 
       const fetchTicketStats = async () => {
         try {
-          const response = await fetch(`http://localhost:5001/api/tickets/stats/user/${user.id}`);
+          const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001'}/api/tickets/stats/user/${user.id}`);
           if (response.ok) {
             const data = await response.json();
             setTotalTicketsSold(data.totalTickets);
@@ -406,7 +406,7 @@ export default function Dashboard() {
   const handleDeleteEvent = async (eventId: number) => {
     if (confirm('Are you sure you want to delete this event? This action cannot be undone.')) {
       try {
-        const response = await fetch(`http://localhost:5001/api/events/${eventId}`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001'}/api/events/${eventId}`, {
           method: 'DELETE',
         });
 
@@ -425,7 +425,7 @@ export default function Dashboard() {
   const handleDeleteAccount = async () => {
     setIsDeletingAccount(true);
     try {
-      const response = await fetch(`http://localhost:5001/api/users/${user.id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001'}/api/users/${user.id}`, {
         method: 'DELETE',
       });
 

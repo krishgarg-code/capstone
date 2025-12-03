@@ -45,7 +45,7 @@ export default function EditProfileModal({ isOpen, onClose, user, onUpdate }: Ed
         }
 
         try {
-            const response = await fetch(`http://localhost:5001/api/users/${user.id}`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001'}/api/users/${user.id}`, {
                 method: 'PUT',
                 body: formData,
             });

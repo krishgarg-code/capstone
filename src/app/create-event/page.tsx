@@ -50,7 +50,7 @@ function CreateEventContent() {
     useEffect(() => {
         if (editId) {
             setIsLoading(true);
-            fetch(`http://localhost:5001/api/events/user/${user?.id}`)
+            fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001'}/api/events/user/${user?.id}`)
                 .then(res => res.json())
                 .then(events => {
                     const event = events.find((e: any) => e.id.toString() === editId);
@@ -156,8 +156,8 @@ function CreateEventContent() {
 
         try {
             const url = editId
-                ? `http://localhost:5001/api/events/${editId}`
-                : 'http://localhost:5001/api/events';
+                ? `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001'}/api/events/${editId}`
+                : `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001'}/api/events`;
 
             const method = editId ? 'PUT' : 'POST';
 

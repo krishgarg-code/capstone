@@ -23,7 +23,7 @@ export default function EventDetailPage() {
       console.log('Slug from params:', slug); // Debug log
       if (slug) {
         try {
-          const url = `http://localhost:5001/api/events/${slug}`;
+          const url = `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001'}/api/events/${slug}`;
           console.log('Fetching URL:', url); // Debug log
           const response = await fetch(url);
           console.log('Response status:', response.status); // Debug log
@@ -63,7 +63,7 @@ export default function EventDetailPage() {
     if (!user) return;
     setIsBooking(true);
     try {
-      const response = await fetch('http://localhost:5001/api/tickets', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001'}/api/tickets`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
