@@ -5,6 +5,7 @@ import ScrollVelocity from "@/components/ScrollVelocity";
 import TestimonialsColumns1 from "@/components/blocks/testimonials-columns-1";
 import { Logo } from "@/components/logo";
 import SplashCursor from "@/components/SplashCursor";
+import HeroSearch from "@/components/HeroSearch";
 
 export default function Home() {
   // Define items for the InfiniteMenu component
@@ -123,18 +124,7 @@ export default function Home() {
               Unlock access to premium concerts, festivals, and live shows designed to elevate your experience.
             </p>
             <div className="mt-12 flex justify-center">
-              <div className="relative w-full max-w-2xl">
-                <input
-                  type="text"
-                  placeholder="Find & Book Amazing Events"
-                  className="w-full px-6 py-5 pr-14 text-lg rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#00963c]/50 focus:border-[#00963c]/50 focus:bg-white/10 transition-all duration-300 font-medium"
-                />
-                <button className="absolute right-2 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white text-black hover:bg-gray-200 transition-all duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                </button>
-              </div>
+              <HeroSearch />
             </div>
           </div>
         </section>

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '@/lib/useAuth';
 import { AnimatePresence, motion } from "framer-motion";
@@ -14,6 +13,7 @@ interface MenuItem {
 }
 
 export default function StaggeredMenu() {
+  console.log('StaggeredMenu rendering');
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
@@ -135,20 +135,20 @@ export default function StaggeredMenu() {
                 </div>
               ) : isClient && !loading ? (
                 <div className="space-y-6">
-                  <Link
+                  <TransitionLink
                     href="/login"
                     className="block w-full text-center text-xl font-medium text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors duration-300 py-3"
                     onClick={() => setIsOpen(false)}
                   >
                     Login
-                  </Link>
-                  <Link
+                  </TransitionLink>
+                  <TransitionLink
                     href="/signup"
                     className="block w-full text-center text-xl font-medium text-black dark:text-white bg-transparent border border-black dark:border-white rounded-md hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-300 py-3"
                     onClick={() => setIsOpen(false)}
                   >
                     Sign Up
-                  </Link>
+                  </TransitionLink>
                 </div>
               ) : (
                 <div>

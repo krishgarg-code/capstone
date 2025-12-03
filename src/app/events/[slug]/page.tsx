@@ -4,29 +4,93 @@ import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
 import TransitionLink from '@/components/TransitionLink';
-import { generateSlug, findEventBySlug } from '@/lib/utils';
-import { events as mockEvents } from '@/lib/data';
 import { Calendar, MapPin, Clock, Globe, Users, Tag, ArrowLeft, Share2, Heart } from 'lucide-react';
+import BookingModal from '@/components/BookingModal';
+import BookingSuccessModal from '@/components/BookingSuccessModal';
+import AuthRequiredModal from '@/components/AuthRequiredModal';
+import { useAuth } from '@/lib/useAuth';
 
 export default function EventDetailPage() {
   const params = useParams();
-  const id = params.id as string;
+  const slug = params.slug as string;
   const router = useRouter();
   const [event, setEvent] = useState<any>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
-    if (id) {
-      const foundEvent = findEventBySlug(mockEvents, id);
+    const fetchEvent = async () => {
+      console.log('Slug from params:', slug); // Debug log
+      if (slug) {
+        try {
+          const url = `http://localhost:5001/api/events/${slug}`;
+          console.log('Fetching URL:', url); // Debug log
+          const response = await fetch(url);
+          console.log('Response status:', response.status); // Debug log
 
-      if (foundEvent) {
-        setEvent(foundEvent);
-      } else {
-        router.push('/events');
+          if (response.ok) {
+            const data = await response.json();
+            console.log('Event data received:', data); // Debug log
+            setEvent(data);
+          } else {
+            console.error('Event not found');
+            // router.push('/events'); // Comment out redirect for debugging
+          }
+        } catch (error) {
+          console.error('Error fetching event:', error);
+        }
       }
+    };
+
+    fetchEvent();
+  }, [slug, router]);
+
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isBooking, setIsBooking] = useState(false);
+  const { user } = useAuth();
+
+  const handleBookClick = () => {
+    if (!user) {
+      setIsAuthModalOpen(true);
+      return;
     }
-  }, [id, router]);
+    setIsBookingModalOpen(true);
+  };
+
+  const handleConfirmBooking = async () => {
+    if (!user) return;
+    setIsBooking(true);
+    try {
+      const response = await fetch('http://localhost:5001/api/tickets', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: user.id,
+          eventId: event.id,
+        }),
+      });
+
+      if (response.ok) {
+        // Success
+        setIsBookingModalOpen(false);
+        setIsSuccessModalOpen(true);
+        // alert('Ticket booked successfully! Check your dashboard.');
+        // router.push('/dashboard');
+      } else {
+        const errorData = await response.json();
+        alert(`Booking failed: ${errorData.error}`);
+      }
+    } catch (error) {
+      console.error('Error booking ticket:', error);
+      alert('Failed to book ticket. Please try again.');
+    } finally {
+      setIsBooking(false);
+    }
+  };
 
   if (!event) {
     return (
@@ -163,7 +227,7 @@ export default function EventDetailPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white mb-1">Venue Type</h3>
-                    <p className="text-white/60">{event.venueType}</p>
+                    <p className="text-white/60">{event.venue_type}</p>
                   </div>
                 </div>
                 <div className="bg-white/5 border border-white/10 p-6 rounded-xl flex items-start gap-4">
@@ -188,7 +252,7 @@ export default function EventDetailPage() {
                     <p className="text-white/60 text-sm mb-1">Price per person</p>
                     <div className="flex items-baseline gap-1">
                       <span className="text-3xl font-bold text-white">
-                        {event.price === 0 ? 'Free' : `$${event.price}`}
+                        {event.price === 0 ? 'Free' : `₹${event.price}`}
                       </span>
                     </div>
                   </div>
@@ -215,8 +279,12 @@ export default function EventDetailPage() {
                   </div>
                 </div>
 
-                <button className="w-full bg-white text-black font-bold py-4 rounded-xl hover:bg-gray-200 transition-all shadow-luxury mb-4 text-lg">
-                  Book Now
+                <button
+                  onClick={handleBookClick}
+                  disabled={event.capacity <= event.attendees}
+                  className="w-full bg-white text-black font-bold py-4 rounded-xl hover:bg-gray-200 transition-all shadow-luxury mb-4 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {event.capacity <= event.attendees ? 'Sold Out' : 'Book Now'}
                 </button>
                 <p className="text-center text-white/40 text-sm">
                   No credit card required for reservation
@@ -236,6 +304,25 @@ export default function EventDetailPage() {
           </div>
         </div>
       </div>
+
+      <BookingModal
+        isOpen={isBookingModalOpen}
+        onClose={() => setIsBookingModalOpen(false)}
+        onConfirm={handleConfirmBooking}
+        eventTitle={event.title}
+        price={event.price}
+        isBooking={isBooking}
+      />
+
+      <BookingSuccessModal
+        isOpen={isSuccessModalOpen}
+        onClose={() => setIsSuccessModalOpen(false)}
+      />
+
+      <AuthRequiredModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+      />
     </div>
   );
 }
