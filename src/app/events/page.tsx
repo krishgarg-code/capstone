@@ -86,7 +86,9 @@ function EventsContent() {
           ...(filters.sort && { sort: filters.sort }),
         });
 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001'}/api/events?${queryParams}`);
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001';
+        const url = `${baseUrl}/api/events?${queryParams.toString()}`;
+        const response = await fetch(url);
         if (response.ok) {
           const data = await response.json();
           // Check if data is array (old format) or object (new format)
