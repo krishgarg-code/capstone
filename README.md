@@ -54,3 +54,6 @@ The application follows a client-server architecture:
     # Backend directory
     npm run dev
     ```
+
+
+    ## FRONTEND LINK --> https://vioraa.vercel.app/
